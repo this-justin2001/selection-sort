@@ -6,6 +6,29 @@ public class arrSort {
 	int rollno;
 	String name;
 	String address;
+	
+	private static void printArray(int pass,ArrayList <Student> studentArr) {
+		System.out.println("pass: " + pass);
+		for(int i = 0; i < studentArr.size() - 1; i++) {
+			System.out.println(studentArr.get(i) + ", ");
+		}
+		System.out.print(studentArr.get(studentArr.size() - 1) + "."); 
+       		System.out.println();
+	}
+	public static void Sort(ArrayList<Student> studentArr) {
+		for (int i = 0; i < studentArr.size(); i++) {
+			
+			int position = i;
+			for(int j = i; j < studentArr.size(); j++) {
+				if(studentArr.get(j) < studentArr.get(position))
+					position = j;
+			}
+			int minimum = studentArr.get(position);
+			studentArr.set(position,studentArr.get(i));
+			studentArr.set(i, minimum);
+			printArray(i + 1,studentArr);
+	}
+}
 	public static void main(String[] args) {
 		ArrayList<Student> studentArr = new ArrayList<Student>();	
 		
@@ -20,5 +43,6 @@ public class arrSort {
 		studentArr.add(new Student(2,"Blake","231 Road Rd."));
 		studentArr.add(new Student(4,"Daegan","321 Road Rd."));
 		
+		Sort(studentArr);
 	}
 }
