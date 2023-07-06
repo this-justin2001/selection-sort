@@ -2,34 +2,36 @@ import java.util.*;
 import java.io.*;
 
 public class arrSort {
-	int i;
-	int rollno;
-	String name;
-	String address;
+	int i; // variable used to iterate "for" loops
+	int rollno; //identifying number for students
+	String name; //Student name
+	String address; //Student address, only added to satisfy assignment requirements
 	
-	private static void printArray(int pass,ArrayList <Student> studentArr) {
+	private static void printArray(int pass ,ArrayList <Student> studentArr) { //Method prints array to the console, is privated to prevent access from other parts of the code
 		System.out.println("pass: " + pass);
-		for(int i = 0; i < studentArr.size() - 1; i++) {
-			System.out.println(studentArr.get(i) + ", ");
+		for(int i = 0; i < studentArr.size() - 1; i++) { //For loop beginning
+			System.out.println(studentArr.get(i) + ", "); //Prints the student object associated with the current iteration count.
 		}
-		System.out.print(studentArr.get(studentArr.size() - 1) + "."); 
-       		System.out.println();
+		System.out.print(studentArr.get(studentArr.size() - 1) + "."); //Gets the current size of the array list and iterates through it in reverse order
+       		System.out.println();//Prints new line, added to help with readability.
 	}
-	public static void Sort(ArrayList<Student> studentArr) {
-		for (int i = 0; i < studentArr.size(); i++) {
+	public static void Sort(ArrayList<Student> studentArr) { //This is the selection sorting algorithm, I also have this in its own dedicated repository
+		for (int i = 0; i < studentArr.size(); i++) { //Iterates through the list, calles the .size() method to iterate until it reaches the end of the list. 
 			
-			int position = i;
-			for(int j = i; j < studentArr.size(); j++) {
-				if(studentArr.get(j) < studentArr.get(position))
-					position = j;
+			int position = i; //this loop finds the smallest value in the unsorted array
+			for(int j = i; j < studentArr.size(); j++) { 
+				if(studentArr.get(j) < studentArr.get(position)) 
+					position = j; 
 			}
-			int minimum = studentArr.get(position);
+			//Below lines, except the print Method, swaps the samllest value with the first.
+			int minimum = studentArr.get(position); 
 			studentArr.set(position,studentArr.get(i));
 			studentArr.set(i, minimum);
-			printArray(i + 1,studentArr);
+			printArray(i + 1,studentArr); //prints finished array
 	}
 }
-	public static void main(String[] args) {
+	public static void main(String[] args) { //Hard codede array entries, sets the object perameters and calls for the sort method. 
+						// Print method is not required because Sort method has Print embedded
 		ArrayList<Student> studentArr = new ArrayList<Student>();	
 		
 		studentArr.add(new Student(9,"Justin S.","123 Street St."));
