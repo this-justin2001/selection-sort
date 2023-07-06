@@ -1,5 +1,5 @@
 import java.util.*;
-
+//Comparator class, compares student object names.
 class nameComp implements Comparator{
 public int compare(Object object1, Object object2) {
 	Student student1 = (Student)object1;
