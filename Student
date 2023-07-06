@@ -1,10 +1,10 @@
-public class Student{
-	int rollno;
-	String name;
-	String address;
+public class Student{ //Student object class
+	int rollno; //identifying number for each student
+	String name; // student name
+	String address; // Student address, added only to satisfy assignment requirements
 	
-	Student(int rollno,String name,String address){
-	this.rollno = rollno;
+	Student(int rollno,String name,String address){ //Instantiating the student object itself
+	this.rollno = rollno; //references the current object, each below references the variable above
 	this.name = name;
 	this.address = address;
 	
